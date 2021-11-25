@@ -7,14 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 
 
 public class HomeActivity extends AppCompatActivity {
-    //durasi splash screenn uhuy
+    //durasi splash screenn selama
     private int durasi_load=3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //lokasi splash screen berada
+        //lokasi splash screen beradaaaa
 
         new Handler().postDelayed(new Runable () {
             @Override
