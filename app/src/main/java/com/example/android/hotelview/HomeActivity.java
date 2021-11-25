@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 
 public class HomeActivity extends AppCompatActivity {
-    //durasi splash screenn
+    //durasi splash screenn uhuy
     private int durasi_load=3000;
 
     @Override
