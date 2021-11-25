@@ -14,7 +14,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        //lokasi splash screen beradaaaaa
+        //lokasi splash screen berada
 
         new Handler().postDelayed(new Runable () {
             @Override
