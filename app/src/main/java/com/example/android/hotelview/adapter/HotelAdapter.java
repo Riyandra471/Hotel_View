@@ -39,7 +39,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull HotelAdapter.ViewHolder viewHolder, int i) {
-        viewHolder.bindItem(hotelModel.get(i), itemClickListener);
+        viewHolder.bindItem(viewHolder.itemView.getContext(), hotelModel.get(i), itemClickListener);
 
 
     }
@@ -55,32 +55,30 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView nama_hotel;
-        private final TextView alamat_hotel;
-        private final TextView no_telp;
-        private final ImageView hotelsImage;
-
+        View view;
 
         public ViewHolder(@NonNull View itemView) {
-            super(itemView);
 
-            nama_hotel =itemView.findViewById(R.id.title);
-            alamat_hotel =itemView.findViewById(R.id.subTitle);
-            no_telp =itemView.findViewById(R.id.newsTitle);
-            hotelsImage =itemView.findViewById(R.id.hotelsImage);
+            super(itemView);
+            view = itemView;
+
         }
 
-        public void bindItem(HotelModel hotelModel, ItemClickListener itemClickListener) {
+        public void bindItem(Context ctx, HotelModel hotelModel, ItemClickListener itemClickListener) {
+
+           TextView nama_hotel =view.findViewById(R.id.title);
+            TextView alamat_hotel =view.findViewById(R.id.subTitle);
+            TextView no_telp =view.findViewById(R.id.newsTitle);
+            ImageView hotelsImage =view.findViewById(R.id.hotelsImage);
+
+
             nama_hotel.setText(hotelModel.getNama());
             alamat_hotel.setText(hotelModel.getAlamat());
             no_telp.setText(hotelModel.getNo_telp());
-//            Glide.with(context)
-//                    .load(hotelModel.getGambar_url())
-//                    .centerCrop()
-//                    .into(hotelsImage);
 
-
-
+            if (hotelModel != null){
+                Glide.with(ctx).load(hotelModel.getGambar_url()).into(hotelsImage);
+            }
 
             if (itemClickListener != null){
                 itemView.setOnClickListener(view -> {

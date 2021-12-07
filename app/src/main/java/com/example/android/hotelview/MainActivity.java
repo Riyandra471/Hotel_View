@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void getUser() {
         AsyncHttpClient client = new AsyncHttpClient();
-        String url = "https://dev.farizdotid.com/api/purwakarta/hotel";
+        String url = "https://run.mocky.io/v3/22eb3e90-1afd-492a-b55c-fc5adcee59ee";
         client.get(url, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             JSONObject dataObject =dataArray.getJSONObject(i);
             String nama_hotel =dataObject.getString("nama");
             String alamat = dataObject.getString("alamat");
-            String no_telp =dataObject.getString("nomor_telp");
+            String no_telp =dataObject.getString("no_telp");
             String gambar_url = dataObject.getString("gambar_url");
 
             hotelModel = new HotelModel(nama_hotel,alamat,no_telp,gambar_url);
