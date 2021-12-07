@@ -39,7 +39,11 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull HotelAdapter.ViewHolder viewHolder, int i) {
+<<<<<<< HEAD
         viewHolder.bindItem(viewHolder.itemView.getContext(), hotelModel.get(i), itemClickListener);
+=======
+        viewHolder.bindItem(hotelModel.get(i), itemClickListener);
+>>>>>>> origin/master
 
 
     }
@@ -55,6 +59,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+<<<<<<< HEAD
         View view;
 
         public ViewHolder(@NonNull View itemView) {
@@ -79,6 +84,34 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.ViewHolder> 
             if (hotelModel != null){
                 Glide.with(ctx).load(hotelModel.getGambar_url()).into(hotelsImage);
             }
+=======
+        private final TextView nama_hotel;
+        private final TextView alamat_hotel;
+        private final TextView no_telp;
+        private final ImageView hotelsImage;
+
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            nama_hotel =itemView.findViewById(R.id.title);
+            alamat_hotel =itemView.findViewById(R.id.subTitle);
+            no_telp =itemView.findViewById(R.id.newsTitle);
+            hotelsImage =itemView.findViewById(R.id.hotelsImage);
+        }
+
+        public void bindItem(HotelModel hotelModel, ItemClickListener itemClickListener) {
+            nama_hotel.setText(hotelModel.getNama());
+            alamat_hotel.setText(hotelModel.getAlamat());
+            no_telp.setText(hotelModel.getNo_telp());
+//            Glide.with(context)
+//                    .load(hotelModel.getGambar_url())
+//                    .centerCrop()
+//                    .into(hotelsImage);
+
+
+
+>>>>>>> origin/master
 
             if (itemClickListener != null){
                 itemView.setOnClickListener(view -> {
